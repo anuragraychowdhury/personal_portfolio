@@ -20,7 +20,7 @@ export default function SidebarNavigation() {
   return (
     <aside className="fixed top-0 left-0 h-full w-64 bg-neutral-950 border-r border-neutral-900 flex flex-col py-10 px-8 z-40 font-sans">
       <div className="mb-12">
-        <span className="text-2xl font-extrabold text-white tracking-tight">Your Name</span>
+        <span className="text-2xl font-extrabold text-white tracking-tight">Anurag Ray Chowdhury</span>
       </div>
       <nav className="flex-1">
         <ul className="flex flex-col gap-1">

@@ -11,7 +11,7 @@ const projects = [
   },
   {
     id: 'project-2',
-    title: '🌍 JILA (Replica)',
+    title: '🌍 JILA',
     description: 'Educational Platform for Q\'anjob\'al-speaking Immigrants'
   },
   {

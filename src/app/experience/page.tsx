@@ -4,24 +4,27 @@ import { motion } from 'framer-motion'
 
 const experiences = [
   {
+    title: 'Technical Lead',
+    company: 'Enactus',
+    location: 'Champaign, IL',
+    period: 'May 2025 – Present',
+    description: [
+      'Led full-stack development and deployment of a cloud-based platform using React, Node.js, and MongoDB, enabling 550+ Q’anjob’al-speaking immigrants to access community resources across iOS and Android.',
+      'Built an internal tool with RESTful APIs, MongoDB, and React Native to streamline data entry and validation, reducing manual update time by 30% and enabling real-time synchronization across mobile and web clients.',
+      'Integrated AWS S3 for secure media storage and efficient content delivery, handling 1,000+ uploaded files with 99.9% uptime and ensuring scalable access to user resources across the application.'
+    ],
+    icon: '📱'
+  },
+  {
     title: 'Machine Learning Intern',
     company: 'John Deere',
     location: 'Ankeny, IA',
     period: 'May 2024 – August 2024',
     description: [
-        'Developed a reusable base class for SmartDetect’s computer vision services using inheritance to streamline 40+ features, improve error handling, and accelerate the development of object intelligence solutions for current and future deployments.'
+      'Fine-tuned an object detection model by curating 5k+ labeled samples, optimizing hyperparameters (learning rate, batch size, augmentation), and running iterative training/evaluation cycles, yielding a 5–10% mAP improvement in production benchmarks for real-time vision tasks.',
+      'Developed a reusable C++ base class for SmartDetect’s object detection stack, consolidating shared functionality across 40+ machine learning services and reducing duplicate code to streamline future feature development.'
     ],
     icon: '🤖'
-  },
-  {
-    title: 'Technical Lead + Developer',
-    company: 'Enactus',
-    location: 'Champaign, IL',
-    period: 'January 2024 – May 2024',
-    description: [
-        'Led full-stack development and product vision for a cross-platform mobile app (JILA), deployed on iOS and Android to support community integration for 550+ Q’anjob’al-speaking immigrants in Champaign. Built with React Native, MongoDB, and AWS S3 to deliver a centralized, multilingual resource platform.'
-    ],
-    icon: '📱'
   },
   {
     title: 'Software Engineering Intern',
@@ -29,7 +32,9 @@ const experiences = [
     location: 'Ankeny, IA',
     period: 'May 2023 – August 2023',
     description: [
-        'Worked with the Performance Engineering team to develop a Flask-based analysis tool for optimizing self-driving tractor software. Centralized performance data stored across hundreds of local devices into a unified backend using SQL and dynamically displayed with HTML/CSS. Conducted in-depth analysis to improve future software packages and streamline release cycles.'
+      'Built and deployed a full-stack web application using Flask, SQL, and HTML/CSS/JavaScript, enabling internal teams to process and visualize 10k+ tractor automation records through interactive dashboards and query interfaces.',
+      'Designed and normalized 20+ sensor data fields into a relational schema with indexing and constraints, supporting sub-second query latency and improving long-term maintainability of data pipelines.',
+      'Centralized fragmented datasets from 5+ legacy sources into a unified platform, reducing storage overhead by 40% and improving accessibility for downstream system modeling, diagnostics, and predictive analytics.'
     ],
     icon: '💻'
   },
@@ -39,7 +44,7 @@ const experiences = [
     location: 'Downingtown, PA',
     period: 'July 2021 – August 2021',
     description: [
-        'Developed skills in conversational AI and API integration to create chatbots for stock market data processing and display. Gained exposure to SAP practices and tools like HANA.'
+      'Developed skills in conversational AI and API integration to create chatbots for stock market data processing and display. Gained exposure to SAP practices and tools like HANA.'
     ],
     icon: '📊'
   }

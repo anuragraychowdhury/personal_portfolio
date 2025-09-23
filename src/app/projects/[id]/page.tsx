@@ -139,7 +139,7 @@ const projectDetails: Record<string, ProjectDetails> = {
   },
   'project-3': {
     title: '🐧 Linux Operating System',
-    description: 'Custom Linux-like OS built from scratch using x86 assembly, C, and C++. Features multiterminal support, paging, system calls, and a working file system. Stress-tested by ECE admin staff for stability and performance under load.',
+    description: 'Custom Linux-Like Operating System (x86 Assembly, C, C++)',
     techStack: ['x86 Assembly', 'C', 'C++'],
     features: [
       '<strong>Multi-terminal support</strong> with seamless switching',
@@ -173,22 +173,30 @@ const projectDetails: Record<string, ProjectDetails> = {
   },
   'project-4': {
     title: '🐠 Aquasense',
-    description: 'IoT-based water quality monitoring system using ESP32 microcontrollers and sensors to track pH, temperature, and light in real-time. Backend built with Flask, frontend in React, with anomaly detection and LLM-powered recommendations.',
+    description: 'Aquasense: IoT Water Quality Monitoring & Analytics Platform',
     techStack: ['React', 'Flask', 'Pandas/Numpy', 'Arduino Code', 'PCB Hardware'],
     features: [
-      'Real-time sensor data collection and visualization',
-      'Flask API backend with React dashboard',
-      'Anomaly detection using PCA and statistical thresholds',
-      'LLM-generated insights based on sensor trends'
+      '<strong>Real-time</strong> water quality monitoring',
+      '<strong>Multi-sensor integration</strong>: pH, temperature, light',
+      '<strong>Wireless</strong> data streaming to dashboard',
+      '<strong>Threshold alerts</strong> and notifications',
+      '<strong>Entry-level cost</strong>, simple setup'
     ],
     systemDesign: [
-      'IoT sensor data pipeline architecture',
-      'ESP32 Wi-Fi communication protocol',
-      'LLM integration with real-time data streams'
+      '<strong>ESP32</strong> central hub for sensors',
+      'Analog conditioning for <strong>pH</strong> signals',
+      'Local <strong>Flask backend</strong> API endpoints',
+      'Web dashboard for <strong>visualization</strong> and alerts',
+      'Optional <strong>ML anomaly detection</strong> pipeline'
     ],
     github: 'https://github.com/miy28/aquasense/tree/arnav-dev',
     note: 'A live demo of Aquasense requires the actual PCB wiring and PCB hardware, as the system depends on physical sensor inputs and microcontroller integration.',
     media: [
+      {
+        type: 'image',
+        url: '/media/aquasense_HLD.png',
+        title: 'High-Level Design'
+      },
       {
         type: 'pdf',
         url: '/media/aquasense_final_report.pdf',
@@ -220,7 +228,8 @@ const projectDetails: Record<string, ProjectDetails> = {
       'ML recommendation engine with real-time updates',
       'Scalable middleware architecture for data pipelines'
     ],
-    github: 'https://github.com/username/multiplayer-game'
+    github: 'https://github.com/username/multiplayer-game',
+    note: 'This project is a work in progress and will be updated throughout 2025.'
   }
 }
 
@@ -324,30 +333,31 @@ export default function ProjectPage() {
         )}
 
         {/* HLD and Database Schema sections */}
-        <div className={`grid grid-cols-1 gap-6 ${findMediaByTitle('Database Schema') ? 'lg:grid-cols-2' : 'lg:grid-cols-1 max-w-4xl mx-auto'}`}>
-          <div className="bg-neutral-900/80 rounded-xl p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">High-Level Design</h3>
-            <div className="flex justify-center items-center rounded-xl w-full" style={{ background: '#2d323c', border: '1px solid #353945', padding: 12 }}>
-              <Image
-                src={findMediaByTitle('High-Level Design')?.url || '/media/dasdDB_HLD.png'}
-                alt="High-Level Design"
-                width={0}
-                height={0}
-                style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '400px', objectFit: 'contain' }}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="rounded-lg"
-                priority
-              />
-            </div>
-          </div>
-
-          {findMediaByTitle('Database Schema') && (
+        {id !== 'project-5' && (
+          <div className={`grid grid-cols-1 gap-6 ${findMediaByTitle('Database Schema') || (id === 'project-4' && findMediaByTitle('PCB Design')) ? 'lg:grid-cols-2' : 'lg:grid-cols-1 max-w-4xl mx-auto'}`}>
             <div className="bg-neutral-900/80 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Database Schema</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">High-Level Design</h3>
               <div className="flex justify-center items-center rounded-xl w-full" style={{ background: '#2d323c', border: '1px solid #353945', padding: 12 }}>
                 <Image
-                  src={findMediaByTitle('Database Schema')?.url || '/media/dasdDB_DB_design.png'}
-                  alt="Database Schema"
+                  src={findMediaByTitle('High-Level Design')?.url || '/media/dasdDB_HLD.png'}
+                  alt="High-Level Design"
+                  width={0}
+                  height={0}
+                  style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '400px', objectFit: 'contain' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="rounded-lg"
+                  priority
+                />
+              </div>
+            </div>
+
+          {(findMediaByTitle('Database Schema') || (id === 'project-4' && findMediaByTitle('PCB Design'))) && (
+            <div className="bg-neutral-900/80 rounded-xl p-6">
+              <h3 className="text-lg font-semibold text-white mb-4">{findMediaByTitle('Database Schema') ? 'Database Schema' : 'PCB Design'}</h3>
+              <div className="flex justify-center items-center rounded-xl w-full" style={{ background: '#2d323c', border: '1px solid #353945', padding: 12 }}>
+                <Image
+                  src={(findMediaByTitle('Database Schema')?.url || findMediaByTitle('PCB Design')?.url) as string}
+                  alt={findMediaByTitle('Database Schema') ? 'Database Schema' : 'PCB Design'}
                   width={0}
                   height={0}
                   style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '400px', objectFit: 'contain' }}
@@ -358,14 +368,15 @@ export default function ProjectPage() {
               </div>
             </div>
           )}
-        </div>
+          </div>
+        )}
 
-        {project.media && (
+        {project.media && id !== 'project-3' && project.media.some(m => m.title !== 'High-Level Design' && m.title !== 'Database Schema') && (
           <div className="bg-neutral-900/80 rounded-xl p-6">
             <h3 className="text-lg font-semibold text-white mb-4">Project Documentation</h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
               {project.media
-                .filter(media => media.title !== 'High-Level Design' && media.title !== 'Database Schema')
+                .filter(media => media.title !== 'High-Level Design' && media.title !== 'Database Schema' && !(id === 'project-4' && media.title === 'PCB Design'))
                 .map((media, index) => (
                   <div key={index} className="w-full">
                     <MediaDisplay

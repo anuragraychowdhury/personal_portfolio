@@ -17,7 +17,7 @@ const Navigation = () => {
     <nav className="fixed left-0 top-0 h-screen w-64 bg-black p-8 border-r border-gray-800">
       <div className="mb-8">
         <Link href="/" className="text-xl font-bold hover:text-gray-300">
-          Your Name
+          Anurag Ray Chowdhury
         </Link>
       </div>
       <div className="space-y-2">
