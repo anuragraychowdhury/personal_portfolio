@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import MediaDisplay from '@/components/MediaDisplay'
@@ -273,9 +272,8 @@ const projectDetails: Record<string, ProjectDetails> = {
   }
 }
 
-export default function ProjectPage() {
-  const params = useParams()
-  const id = params.id as string
+export default function ProjectPage({ params }: { params: { id: string } }) {
+  const id = params.id
   const project = projectDetails[id as keyof typeof projectDetails]
 
   // Helper function to find specific media items
