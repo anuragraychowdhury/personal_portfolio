@@ -28,6 +28,11 @@ const projects = [
     id: 'project-5',
     title: '📰 FocusFeed',
     description: 'News Aggregation and Informational Platform'
+  },
+  {
+    id: 'project-6',
+    title: '🔍 BM25 Performance Analysis',
+    description: 'Comprehensive Analysis of BM25 Search Algorithm Performance'
   }
 ]
 

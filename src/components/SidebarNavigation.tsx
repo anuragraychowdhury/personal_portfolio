@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 const sections = [
   { name: 'About Me', path: '/about' },
   { name: 'Projects', path: '/projects' },
+  { name: 'Blog', path: '/blog' },
   { name: 'Skills & Tools', path: '/skills' },
   { name: 'Experience', path: '/experience' },
   { name: 'Education', path: '/education' },

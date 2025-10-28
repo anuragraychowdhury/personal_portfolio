@@ -230,6 +230,46 @@ const projectDetails: Record<string, ProjectDetails> = {
     ],
     github: 'https://github.com/username/multiplayer-game',
     note: 'This project is a work in progress and will be updated throughout 2025.'
+  },
+  'project-6': {
+    title: '🔍 BM25 Performance Analysis',
+    description: 'Comprehensive analysis of BM25 (Best Matching 25) search algorithm performance across different datasets and parameter configurations. This research project evaluates retrieval effectiveness, computational efficiency, and optimal parameter tuning for information retrieval systems.',
+    techStack: ['Python', 'NumPy', 'Pandas', 'Scikit-learn', 'Elasticsearch', 'Jupyter Notebooks'],
+    features: [
+      '<strong>Multi-dataset evaluation</strong> across various document collections',
+      '<strong>Parameter sensitivity analysis</strong> for k1 and b values',
+      '<strong>Performance benchmarking</strong> against baseline algorithms',
+      '<strong>Statistical significance testing</strong> for result validation',
+      '<strong>Visualization suite</strong> for performance metrics and trends',
+      '<strong>Scalability analysis</strong> across different corpus sizes'
+    ],
+    systemDesign: [
+      '<strong>Modular evaluation framework</strong> for reproducible experiments',
+      '<strong>Automated parameter sweep</strong> with grid search optimization',
+      '<strong>Cross-validation methodology</strong> for robust performance assessment',
+      '<strong>Statistical analysis pipeline</strong> with confidence intervals',
+      '<strong>Performance profiling</strong> for computational complexity analysis',
+      '<strong>Comparative evaluation</strong> against TF-IDF and other ranking functions'
+    ],
+    github: 'https://github.com/anuragraychowdhury/bm25-performance-analysis',
+    note: 'This research project includes comprehensive statistical analysis and performance benchmarks across multiple standard IR datasets including TREC collections.',
+    media: [
+      {
+        type: 'image',
+        url: '/media/bm25_performance_chart.png',
+        title: 'Performance Comparison Chart'
+      },
+      {
+        type: 'image',
+        url: '/media/bm25_parameter_analysis.png',
+        title: 'Parameter Sensitivity Analysis'
+      },
+      {
+        type: 'image',
+        url: '/media/bm25_scalability_results.png',
+        title: 'Scalability Analysis Results'
+      }
+    ]
   }
 }
 
