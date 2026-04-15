@@ -1,58 +1,29 @@
 # Blog Management Guide
 
-This guide explains how to easily update and manage blog posts in your portfolio.
+This guide explains how to update and manage blog posts in your portfolio.
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Current Setup)
 
-### Method 1: Admin Interface (Easiest)
-1. Navigate to `/admin` in your portfolio
-2. Click "Add New Post" to create a new post
-3. Fill in the form with your content
-4. Use Markdown for formatting in the content field
-5. Click "Create Post" to save
-
-### Method 2: Direct Data File Editing
-1. Open `src/data/blogPosts.ts`
-2. Add a new post object to the `blogPosts` array
-3. Follow the existing structure and format
-
-### Method 3: Markdown Files (Advanced)
-1. Create a new `.md` file in `src/posts/`
-2. Use frontmatter for metadata
-3. Write content in Markdown
-4. Use the markdown utilities to load posts
+### Add/edit posts in a single file
+1. Open `src/data/blogData.ts`
+2. Add a new post object to the `blogPosts` array (or edit an existing one)
+3. Save the file
+4. Run the site and view:
+   - `/blog` for the post list
+   - `/blog/<id>` for a specific post
 
 ## 📝 Adding a New Post
 
-### Using the Admin Interface
-
-1. **Go to Admin Panel**: Visit `/admin` in your browser
-2. **Click "Add New Post"**: This opens the form
-3. **Fill in the details**:
-   - **Title**: Your post title (can include emojis)
-   - **Description**: Brief summary for the post list
-   - **Read Time**: Estimated reading time (e.g., "5 min read")
-   - **Tags**: Comma-separated tags
-   - **Content**: Write in Markdown format
-   - **Published**: Check to make it visible
-   - **Featured**: Check to highlight it
-
-4. **Click "Create Post"**: Your post is now live!
-
-### Using Direct File Editing
-
-Add a new object to the `blogPosts` array in `src/data/blogPosts.ts`:
+Add a new object to the `blogPosts` array in `src/data/blogData.ts`:
 
 ```typescript
 {
   id: 'my-new-post',
   title: '🚀 My New Post',
   description: 'A brief description of what this post is about',
-  date: '2024-10-25',
+  date: '2026-04-15',
   readTime: '5 min read',
   tags: ['React', 'Next.js', 'Tutorial'],
-  published: true,
-  featured: false,
   content: `
 # My New Post
 
@@ -73,29 +44,14 @@ console.log('Hello, World!')
 
 ## ✏️ Editing Existing Posts
 
-### Using Admin Interface
-1. Go to `/admin`
-2. Find your post in the list
-3. Click "Edit"
-4. Make your changes
-5. Click "Update Post"
-
-### Using Direct File Editing
-1. Open `src/data/blogPosts.ts`
+1. Open `src/data/blogData.ts`
 2. Find the post you want to edit
 3. Modify the properties
 4. Save the file
 
 ## 🗑️ Deleting Posts
 
-### Using Admin Interface
-1. Go to `/admin`
-2. Find the post you want to delete
-3. Click "Delete"
-4. Confirm the deletion
-
-### Using Direct File Editing
-1. Open `src/data/blogPosts.ts`
+1. Open `src/data/blogData.ts`
 2. Remove the post object from the array
 3. Save the file
 
@@ -111,15 +67,13 @@ interface BlogPost {
   date: string           // Publication date (YYYY-MM-DD)
   readTime: string       // Estimated reading time
   tags: string[]         // Array of tags for categorization
-  content: string        // Post content in Markdown
-  published: boolean     // Whether post is visible
-  featured?: boolean     // Whether to highlight the post
+  content: string        // Post content (written in Markdown-ish text)
 }
 ```
 
 ## 🎨 Markdown Support
 
-Your blog supports full Markdown formatting:
+Your blog supports common Markdown-style formatting in `content`:
 
 ### Headers
 ```markdown
@@ -161,21 +115,13 @@ console.log('Hello, World!')
 > This is a blockquote
 ```
 
-## 🔧 Advanced Features
+## 🔧 Notes
 
-### Featured Posts
-Set `featured: true` to highlight important posts
-
-### Draft Posts
-Set `published: false` to save posts without making them public
-
-### Tag Management
-Use the `getAllTags()` function to get all unique tags across posts
-
-### Filtering
-- `getAllPosts()` - Get all published posts
-- `getFeaturedPosts()` - Get only featured posts
-- `getPostsByTag(tag)` - Get posts with specific tag
+- There is currently **no `/admin` route** in this repo.
+- Posts are rendered from `src/data/blogData.ts`.
+- The post URL is derived from `id`:
+  - List page: `/blog`
+  - Post page: `/blog/<id>`
 
 ## 🚀 Deployment
 
@@ -189,25 +135,19 @@ After making changes:
 1. **Use descriptive titles** with emojis to make posts stand out
 2. **Write good descriptions** - they appear in the post list
 3. **Use tags consistently** - helps with organization
-4. **Preview your Markdown** - use the admin interface to see how it looks
+4. **Preview your post locally** - visit `/blog/<id>` to see how it looks
 5. **Keep content fresh** - update old posts with new information
 
 ## 🆘 Troubleshooting
 
 ### Post not showing up?
-- Check that `published: true`
-- Verify the post is in the `blogPosts` array
+- Verify the post is in the `blogPosts` array in `src/data/blogData.ts`
 - Check for syntax errors in the data file
 
 ### Formatting issues?
 - Make sure you're using proper Markdown syntax
 - Check that code blocks are properly escaped
-- Use the admin interface to preview formatting
-
-### Admin interface not working?
-- Make sure you're on the `/admin` route
-- Check the browser console for errors
-- Verify all dependencies are installed
+- Preview locally on `/blog/<id>`
 
 ## 📚 Example Post
 
@@ -218,11 +158,9 @@ Here's a complete example of a blog post:
   id: 'getting-started-with-nextjs',
   title: '🚀 Getting Started with Next.js',
   description: 'Learn the basics of Next.js and build your first application',
-  date: '2024-10-25',
+  date: '2026-04-15',
   readTime: '10 min read',
   tags: ['Next.js', 'React', 'Tutorial', 'Web Development'],
-  published: true,
-  featured: true,
   content: `
 # Getting Started with Next.js
 
