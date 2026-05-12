@@ -4,10 +4,21 @@ import { motion } from 'framer-motion'
 
 const experiences = [
   {
+    title: 'Software Engineer',
+    company: 'Ernst & Young (AI and Data)',
+    location: 'New York City, NY',
+    period: 'October 2025 – Present',
+    description: [
+      'Built an evaluation framework for EY.ai Finance, an agentic AI tool supporting an $80M finance transformation initiative, translating business KPIs into measurable developer metrics, tracking token usage and cost, and providing stakeholders with visibility into model performance and optimization opportunities.',
+      'Developed a RAG-based testing agent to automate test case generation across the EY.ai Finance codebase, reducing test development time by 33% and improving scalability of validation workflows for ongoing product iterations.'
+    ],
+    icon: '🏢'
+  },
+  {
     title: 'Technical Lead',
     company: 'Enactus',
     location: 'Champaign, IL',
-    period: 'May 2025 – Present',
+    period: 'May 2025 – August 2025',
     description: [
       'Led full-stack development and deployment of a cloud-based platform using React, Node.js, and MongoDB, enabling 550+ Q’anjob’al-speaking immigrants to access community resources across iOS and Android.',
       'Built an internal tool with RESTful APIs, MongoDB, and React Native to streamline data entry and validation, reducing manual update time by 30% and enabling real-time synchronization across mobile and web clients.',
@@ -21,8 +32,9 @@ const experiences = [
     location: 'Ankeny, IA',
     period: 'May 2024 – August 2024',
     description: [
-      'Fine-tuned an object detection model by curating 5k+ labeled samples, optimizing hyperparameters (learning rate, batch size, augmentation), and running iterative training/evaluation cycles, yielding a 5–10% mAP improvement in production benchmarks for real-time vision tasks.',
-      'Developed a reusable C++ base class for SmartDetect’s object detection stack, consolidating shared functionality across 40+ machine learning services and reducing duplicate code to streamline future feature development.'
+      'Curated and labeled 5k+ training samples focused on challenging edge cases (e.g., distinguishing humans from equipment), improving dataset quality and reducing misclassifications in safety-critical scenarios.',
+      'Trained and fine-tuned object detection models using PyTorch, optimizing hyperparameters (learning rate, batch size, augmentation) and running iterative training/evaluation cycles, achieving a 5–10% improvement in precision/recall on validation datasets and improving robustness across varying environmental conditions (lighting, occlusion).',
+      'Developed a reusable C++ base class for SmartDetect’s object detection stack, abstracting shared inference and processing logic across 40+ machine learning services, reducing code duplication and simplifying integration of new detection features.'
     ],
     icon: '🤖'
   },
@@ -32,9 +44,9 @@ const experiences = [
     location: 'Ankeny, IA',
     period: 'May 2023 – August 2023',
     description: [
-      'Built and deployed a full-stack web application using Flask, SQL, and HTML/CSS/JavaScript, enabling internal teams to process and visualize 10k+ tractor automation records through interactive dashboards and query interfaces.',
-      'Designed and normalized 20+ sensor data fields into a relational schema with indexing and constraints, supporting sub-second query latency and improving long-term maintainability of data pipelines.',
-      'Centralized fragmented datasets from 5+ legacy sources into a unified platform, reducing storage overhead by 40% and improving accessibility for downstream system modeling, diagnostics, and predictive analytics.'
+      'Built a web application using Flask, SQL, and JavaScript to centralize and visualize 10k+ self-driving tractor records, creating a unified dashboard for internal teams to evaluate system performance and debug workflows.',
+      'Structured and optimized 20+ sensor data fields into a relational database with indexing, enabling sub-second queries on large telemetry datasets and making data easier to query and analyze.',
+      'Centralized fragmented datasets from 5+ legacy sources into a unified platform, reducing storage overhead by 30% and improving accessibility for downstream system modeling, diagnostics, and predictive analytics.'
     ],
     icon: '💻'
   },

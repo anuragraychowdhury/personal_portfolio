@@ -214,61 +214,22 @@ const projectDetails: Record<string, ProjectDetails> = {
     ]
   },
   'project-5': {
-    title: '📰 FocusFeed',
-    description: 'AI-powered news platform aggregating real-time content from news sites, social media, and forums. Built with Flask and React, FocusFeed delivers personalized, interactive feeds using a custom recommendation engine, semantic clustering, and an intuitive swipe-based interface.',
-    techStack: ['React', 'Flask', 'SQL', 'API Integration'],
+    title: '🏀 Steph Curry Gravity Analysis',
+    description:
+      'Quantitative study of how Stephen Curry draws defensive attention off the ball and opens the floor for teammates. Combines tracking-derived spatial metrics with shot and possession context to approximate scoring “gravity” and its downstream effects.',
+    techStack: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Jupyter'],
     features: [
-      'Multi-source real-time content aggregation',
-      'Semantic clustering of related articles into unified "feed notes"',
-      'Personalized feed with ML-driven recommendations'
+      '<strong>Spatial metrics</strong> from player and ball positioning over possessions',
+      '<strong>Gravity proxies</strong> based on defender distance, help rotations, and lane pressure',
+      '<strong>Comparative slices</strong> by lineup, quarter, and shot-clock phase',
+      '<strong>Visualization suite</strong> for heat maps, movement sequences, and summary tables'
     ],
     systemDesign: [
-      'Multi-source API aggregation with rate limiting',
-      'ML recommendation engine with real-time updates',
-      'Scalable middleware architecture for data pipelines'
+      '<strong>Reproducible notebook pipeline</strong> from raw or semi-structured inputs to figures',
+      '<strong>Modular metric definitions</strong> so gravity measures can be iterated without rewriting ETL',
+      '<strong>Validation checks</strong> on counts, missing frames, and court-coordinate sanity'
     ],
-    github: 'https://github.com/username/multiplayer-game',
-    note: 'This project is a work in progress and will be updated throughout 2025.'
-  },
-  'project-6': {
-    title: '🔍 BM25 Performance Analysis',
-    description: 'Comprehensive analysis of BM25 (Best Matching 25) search algorithm performance across different datasets and parameter configurations. This research project evaluates retrieval effectiveness, computational efficiency, and optimal parameter tuning for information retrieval systems.',
-    techStack: ['Python', 'NumPy', 'Pandas', 'Scikit-learn', 'Elasticsearch', 'Jupyter Notebooks'],
-    features: [
-      '<strong>Multi-dataset evaluation</strong> across various document collections',
-      '<strong>Parameter sensitivity analysis</strong> for k1 and b values',
-      '<strong>Performance benchmarking</strong> against baseline algorithms',
-      '<strong>Statistical significance testing</strong> for result validation',
-      '<strong>Visualization suite</strong> for performance metrics and trends',
-      '<strong>Scalability analysis</strong> across different corpus sizes'
-    ],
-    systemDesign: [
-      '<strong>Modular evaluation framework</strong> for reproducible experiments',
-      '<strong>Automated parameter sweep</strong> with grid search optimization',
-      '<strong>Cross-validation methodology</strong> for robust performance assessment',
-      '<strong>Statistical analysis pipeline</strong> with confidence intervals',
-      '<strong>Performance profiling</strong> for computational complexity analysis',
-      '<strong>Comparative evaluation</strong> against TF-IDF and other ranking functions'
-    ],
-    github: 'https://github.com/anuragraychowdhury/bm25-performance-analysis',
-    note: 'This research project includes comprehensive statistical analysis and performance benchmarks across multiple standard IR datasets including TREC collections.',
-    media: [
-      {
-        type: 'image',
-        url: '/media/bm25_performance_chart.png',
-        title: 'Performance Comparison Chart'
-      },
-      {
-        type: 'image',
-        url: '/media/bm25_parameter_analysis.png',
-        title: 'Parameter Sensitivity Analysis'
-      },
-      {
-        type: 'image',
-        url: '/media/bm25_scalability_results.png',
-        title: 'Scalability Analysis Results'
-      }
-    ]
+    github: 'https://github.com/anuragraychowdhury'
   }
 }
 
@@ -370,44 +331,74 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           </div>
         )}
 
-        {/* HLD and Database Schema sections */}
-        {id !== 'project-5' && (
-          <div className={`grid grid-cols-1 gap-6 ${findMediaByTitle('Database Schema') || (id === 'project-4' && findMediaByTitle('PCB Design')) ? 'lg:grid-cols-2' : 'lg:grid-cols-1 max-w-4xl mx-auto'}`}>
-            <div className="bg-neutral-900/80 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">High-Level Design</h3>
-              <div className="flex justify-center items-center rounded-xl w-full" style={{ background: '#2d323c', border: '1px solid #353945', padding: 12 }}>
-                <Image
-                  src={findMediaByTitle('High-Level Design')?.url || '/media/dasdDB_HLD.png'}
-                  alt="High-Level Design"
-                  width={0}
-                  height={0}
-                  style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '400px', objectFit: 'contain' }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="rounded-lg"
-                  priority
-                />
-              </div>
-            </div>
+        {/* HLD and Database Schema sections — only when project includes matching media */}
+        {(() => {
+          const hld = findMediaByTitle('High-Level Design')
+          const dbOrPcb =
+            findMediaByTitle('Database Schema') || (id === 'project-4' && findMediaByTitle('PCB Design'))
+          if (!hld && !dbOrPcb) return null
+          return (
+            <div
+              className={`grid grid-cols-1 gap-6 ${hld && dbOrPcb ? 'lg:grid-cols-2' : 'lg:grid-cols-1 max-w-4xl mx-auto'}`}
+            >
+              {hld && (
+                <div className="bg-neutral-900/80 rounded-xl p-6">
+                  <h3 className="text-lg font-semibold text-white mb-4">High-Level Design</h3>
+                  <div
+                    className="flex justify-center items-center rounded-xl w-full"
+                    style={{ background: '#2d323c', border: '1px solid #353945', padding: 12 }}
+                  >
+                    <Image
+                      src={hld.url}
+                      alt="High-Level Design"
+                      width={0}
+                      height={0}
+                      style={{
+                        width: 'auto',
+                        height: 'auto',
+                        maxWidth: '100%',
+                        maxHeight: '400px',
+                        objectFit: 'contain'
+                      }}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="rounded-lg"
+                      priority
+                    />
+                  </div>
+                </div>
+              )}
 
-          {(findMediaByTitle('Database Schema') || (id === 'project-4' && findMediaByTitle('PCB Design'))) && (
-            <div className="bg-neutral-900/80 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">{findMediaByTitle('Database Schema') ? 'Database Schema' : 'PCB Design'}</h3>
-              <div className="flex justify-center items-center rounded-xl w-full" style={{ background: '#2d323c', border: '1px solid #353945', padding: 12 }}>
-                <Image
-                  src={(findMediaByTitle('Database Schema')?.url || findMediaByTitle('PCB Design')?.url) as string}
-                  alt={findMediaByTitle('Database Schema') ? 'Database Schema' : 'PCB Design'}
-                  width={0}
-                  height={0}
-                  style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '400px', objectFit: 'contain' }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="rounded-lg"
-                  priority
-                />
-              </div>
+              {dbOrPcb && (
+                <div className="bg-neutral-900/80 rounded-xl p-6">
+                  <h3 className="text-lg font-semibold text-white mb-4">
+                    {findMediaByTitle('Database Schema') ? 'Database Schema' : 'PCB Design'}
+                  </h3>
+                  <div
+                    className="flex justify-center items-center rounded-xl w-full"
+                    style={{ background: '#2d323c', border: '1px solid #353945', padding: 12 }}
+                  >
+                    <Image
+                      src={(findMediaByTitle('Database Schema')?.url || findMediaByTitle('PCB Design')?.url) as string}
+                      alt={findMediaByTitle('Database Schema') ? 'Database Schema' : 'PCB Design'}
+                      width={0}
+                      height={0}
+                      style={{
+                        width: 'auto',
+                        height: 'auto',
+                        maxWidth: '100%',
+                        maxHeight: '400px',
+                        objectFit: 'contain'
+                      }}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="rounded-lg"
+                      priority
+                    />
+                  </div>
+                </div>
+              )}
             </div>
-          )}
-          </div>
-        )}
+          )
+        })()}
 
         {project.media && id !== 'project-3' && project.media.some(m => m.title !== 'High-Level Design' && m.title !== 'Database Schema') && (
           <div className="bg-neutral-900/80 rounded-xl p-6">

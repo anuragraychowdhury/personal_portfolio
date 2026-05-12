@@ -8,9 +8,9 @@ const education = [
     degree: 'Master of Science in Computer Science',
     school: 'University of Illinois Urbana-Champaign',
     location: 'Champaign, IL',
-    period: '2025 – Present',
+    period: '2025 – 2026',
     description: [
-      'Relevant Coursework: Data Mining, Applied Machine Learning, Scientific Visualization, Data Cleaning'
+      'Relevant Coursework: Deep Learning, Natural Language Processing, Text Information Systems, Software Engineering'
     ],
     icon: '🎓'
   },
