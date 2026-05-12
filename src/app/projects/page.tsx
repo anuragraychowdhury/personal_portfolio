@@ -30,7 +30,7 @@ const refinedProjects = [
   {
     id: 'project-5',
     title: '🏀 Steph Curry Gravity Analysis',
-    description: 'Spatial gravity & defender motion from tracking data'
+    description: 'Basketball analytics'
   }
 ]
 
