@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-black text-white`}>
         <SidebarNavigation />
-        <main className="ml-64 min-h-screen p-8 bg-black">
+        <main className="min-h-screen bg-black p-4 pt-20 md:ml-64 md:p-8">
           {children}
         </main>
       </body>

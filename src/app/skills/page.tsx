@@ -48,7 +48,7 @@ export default function SkillsPage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-neutral-950/90 rounded-2xl shadow-lg p-12 max-w-4xl mx-auto mt-10 font-sans border border-neutral-900"
+      className="bg-neutral-950/90 rounded-2xl shadow-lg p-6 sm:p-12 max-w-4xl mx-auto mt-4 sm:mt-10 font-sans border border-neutral-900"
     >
       <h1 className="text-5xl font-extrabold mb-4 text-white tracking-tight">Skills & Tools</h1>
 

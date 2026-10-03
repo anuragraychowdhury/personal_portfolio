@@ -42,7 +42,7 @@ const EducationPage: NextPage = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-neutral-950/90 rounded-2xl shadow-lg p-12 max-w-4xl mx-auto mt-10 font-sans border border-neutral-900"
+      className="bg-neutral-950/90 rounded-2xl shadow-lg p-6 sm:p-12 max-w-4xl mx-auto mt-4 sm:mt-10 font-sans border border-neutral-900"
     >
       <h1 className="text-5xl font-extrabold mb-4 text-white tracking-tight">Education</h1>
 
@@ -69,7 +69,7 @@ const EducationPage: NextPage = () => {
               </div>
 
               <div className="bg-neutral-900/50 rounded-xl p-6 backdrop-blur-sm">
-                <div className="flex justify-between items-start mb-4">
+                <div className="flex flex-col gap-1 sm:flex-row sm:justify-between sm:items-start mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-white mb-1">{edu.degree}</h3>
                     <p className="text-lg text-neutral-300 mb-1">{edu.school}</p>

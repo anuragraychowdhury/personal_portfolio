@@ -68,7 +68,7 @@ export default function ExperiencePage() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-neutral-950/90 rounded-2xl shadow-lg p-12 max-w-4xl mx-auto mt-10 font-sans border border-neutral-900"
+      className="bg-neutral-950/90 rounded-2xl shadow-lg p-6 sm:p-12 max-w-4xl mx-auto mt-4 sm:mt-10 font-sans border border-neutral-900"
     >
       <h1 className="text-5xl font-extrabold mb-4 text-white tracking-tight">Experience</h1>
 
@@ -95,7 +95,7 @@ export default function ExperiencePage() {
               </div>
 
               <div className="bg-neutral-900/50 rounded-xl p-6 backdrop-blur-sm">
-                <div className="flex justify-between items-start mb-4">
+                <div className="flex flex-col gap-1 sm:flex-row sm:justify-between sm:items-start mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-white mb-1">{experience.title} · {experience.company}</h3>
                     <p className="text-neutral-500 text-sm">{experience.period}</p>
